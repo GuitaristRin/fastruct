@@ -126,3 +126,132 @@ fastruct -d /home/user/projects --depth 3
 ## 许可证
 
 本项目采用 MIT 许可证。详见 [LICENSE](LICENSE) 文件。
+
+# Fastruct - Fast Project Structure Viewer
+
+Fastruct is a lightweight command-line tool for displaying directory contents in a clear tree structure. It uses different colors to mark files based on their type and displays the full path of each file.
+
+### Recognized Source Code File Types
+
+Supports source code files for multiple programming languages:
+- C/C++ Family (`.cpp`, `.c`, `.h`, `.hpp`, `.cc`, `.cxx`)
+- Python (`.py`)
+- Java (`.java`)
+- JavaScript (`.js`)
+- Rust (`.rs`)
+- Go (`.go`)
+- Ruby (`.rb`)
+- PHP (`.php`)
+- Perl (`.pl`)
+- Shell Scripts (`.sh`, `.bash`, `.zsh`)
+
+### Executable File Detection
+
+- **Windows**: Recognized by file extension (`.exe`, `.bat`, `.cmd`, `.com`)
+- **Unix-like**: Recognized by file permissions (files with execute permission)
+
+## Installation
+
+### Arch Linux (AUR)
+
+Install via AUR:
+
+```bash
+git clone https://aur.archlinux.org/fastruct.git
+cd fastruct
+makepkg -si
+```
+
+### Windows
+
+1. Download the latest `fastruct.exe` from the [Releases](https://github.com/yourusername/fastruct/releases) page
+2. Place the executable in any directory, it is recommended to add it to the system PATH environment variable
+
+### Build from Source
+
+#### Dependencies
+- C++17 compatible compiler
+- GCC/G++ (recommended if possible)
+
+#### Build Steps
+
+```bash
+git clone https://github.com/GuitaristRin/fastruct.git
+cd fastruct
+
+# Linux
+g++ -std=c++17 -o fastruct fastruct.cpp
+
+# Windows (MinGW)
+g++ -std=c++17 -o fastruct.exe fastruct.cpp
+```
+
+## Usage
+
+### Basic Syntax
+
+```bash
+fastruct [options]
+```
+
+### Options
+
+| Option | Description |
+|--------|-------------|
+| `-d <path>` | Specify the starting directory (defaults to current directory) |
+| `--depth <value>` | Set the maximum recursion depth (defaults to unlimited) |
+
+### Usage Examples
+
+#### 1. View Current Directory Structure
+
+```bash
+fastruct
+```
+
+Sample Output:
+```
+project/
+-subdir1
+-file.txt /home/user/project/file.txt
+-script.sh /home/user/project/script.sh
+-main.cpp /home/user/project/main.cpp
+```
+
+#### 2. View a Specified Directory
+
+```bash
+fastruct -d /path/to/directory
+```
+
+#### 3. Limit Traversal Depth
+
+```bash
+# Show only the current directory contents (do not enter subdirectories)
+fastruct --depth 0
+
+# Show two levels of structure
+fastruct --depth 2
+```
+
+#### 4. Combined Usage
+
+```bash
+fastruct -d /home/user/projects --depth 3
+```
+
+### Output Format Description
+
+Each line represents a file or directory:
+- **Directory** starts with `-` followed by the directory name in yellow
+- **File** starts with `-` followed by the colored filename, ending with the full path in gray
+
+## Notes
+
+- When using on Windows, ensure your terminal supports ANSI color codes (Windows 10 and above support this by default)
+- If a directory with insufficient permissions is encountered, the program will display an error message and continue processing other directories
+- Symbolic links are skipped to avoid circular references
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
