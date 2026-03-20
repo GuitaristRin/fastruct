@@ -43,7 +43,7 @@ makepkg -si
 
 ### Windows
 
-1. 从 [Releases](https://github.com/yourusername/fastruct/releases) 页面下载最新版本的 `fastruct-1.0.0-windows-x86_64.exe`
+1. 从 [Releases](https://github.com/GuitaristRin/fastruct/releases) 页面下载最新版本的 `fastruct-1.0.0-windows-x86_64.exe`
 2. 运行安装包，安装完成后，您需要设置PATH环境变量
 
 ### 从源码编译
@@ -184,7 +184,7 @@ makepkg -si
 
 ### Windows
 
-1. Download the latest `fastruct-1.0.0-windows-x86_64.exe` from the [Releases](https://github.com/yourusername/fastruct/releases) page
+1. Download the latest `fastruct-1.0.0-windows-x86_64.exe` from the [Releases](https://github.com/GuitaristRin/fastruct/releases) page
 2. Run setup,after the installation,you may need to add the PATH
 
 ### Build from Source
