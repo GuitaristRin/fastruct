@@ -2,6 +2,8 @@
 
 > 🌐 Language | [中文](#中文) | [English](#english)
 
+## 中文
+<a id="中文"></a>
 <a id="top"></a>
 
 # Fastruct - 快速项目结构查看工具
@@ -134,8 +136,7 @@ fastruct -d /home/user/projects --depth 3
 本项目采用 MIT 许可证。详见 [LICENSE](LICENSE) 文件。
 ---
 
-## 中文
-<a id="中文"></a>
+
 
 
 
