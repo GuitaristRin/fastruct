@@ -43,8 +43,8 @@ makepkg -si
 
 ### Windows
 
-1. 从 [Releases](https://github.com/yourusername/fastruct/releases) 页面下载最新版本的 `fastruct.exe`
-2. 将可执行文件放在任意目录，建议添加到系统 PATH 环境变量中
+1. 从 [Releases](https://github.com/yourusername/fastruct/releases) 页面下载最新版本的 `fastruct-1.0.0-windows-x86_64.exe`
+2. 运行安装包，安装完成后，您需要设置PATH环境变量
 
 ### 从源码编译
 
@@ -184,8 +184,8 @@ makepkg -si
 
 ### Windows
 
-1. Download the latest `fastruct.exe` from the [Releases](https://github.com/yourusername/fastruct/releases) page
-2. Place the executable in any directory, it is recommended to add it to the system PATH environment variable
+1. Download the latest `fastruct-1.0.0-windows-x86_64.exe` from the [Releases](https://github.com/yourusername/fastruct/releases) page
+2. Run setup,after the installation,you may need to add the PATH
 
 ### Build from Source
 
