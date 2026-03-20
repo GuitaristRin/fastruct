@@ -1,5 +1,11 @@
 # Fastruct - 快速项目结构查看工具
 
+> 🌐 Language | [中文](#中文) | [English](#english)
+
+<a id="top"></a>
+
+# Fastruct - 快速项目结构查看工具
+
 Fastruct 是一个轻量级的命令行工具，用于以清晰的树状结构展示目录内容。它会根据文件类型使用不同颜色进行标记，并显示每个文件的完整路径。
 
 ### 识别的源代码文件类型
@@ -126,6 +132,19 @@ fastruct -d /home/user/projects --depth 3
 ## 许可证
 
 本项目采用 MIT 许可证。详见 [LICENSE](LICENSE) 文件。
+---
+
+## 中文
+<a id="中文"></a>
+
+
+
+<p align="right"><a href="#top">🔝 返回顶部</a></p>
+
+---
+
+## English
+<a id="english"></a>
 
 # Fastruct - Fast Project Structure Viewer
 
@@ -255,3 +274,9 @@ Each line represents a file or directory:
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
+<p align="right"><a href="#top">🔝 Back to top</a></p>
+```
+
+
