@@ -43,7 +43,7 @@ makepkg -si
 
 ### Windows
 
-1. 从 [Releases](https://github.com/GuitaristRin/fastruct/releases) 页面下载最新版本的 `fastruct-1.0.0-windows-x86_64.exe`
+1. 从 [Releases](https://github.com/GuitaristRin/fastruct/releases) 页面下载最新版本的 `fastruct-1.1.0-windows-x86_64.exe`
 2. 运行安装包，安装完成后，您需要设置PATH环境变量
 
 ### 从源码编译
@@ -79,6 +79,8 @@ fastruct [选项]
 |------|------|
 | `-d <路径>` | 指定起始目录（默认为当前目录） |
 | `--depth <数值>` | 设置最大递归深度（默认为无限） |
+| `--nopath` | 不在文件名后显示完整路径 |
+| `--saveto [路径]` | 将输出保存到指定文件或目录（若不指定路径，则默认保存到当前目录下的 `fastruct_output.txt`） |
 
 ### 使用示例
 
@@ -113,17 +115,50 @@ fastruct --depth 0
 fastruct --depth 2
 ```
 
-#### 4. 组合使用
+#### 4. 不显示完整路径
 
 ```bash
-fastruct -d /home/user/projects --depth 3
+fastruct --nopath
+```
+
+输出示例（与之前相比，文件名后不再显示完整路径）：
+```
+project/
+-subdir1
+-file.txt
+-script.sh
+-main.cpp
+```
+
+#### 5. 保存输出到文件
+
+```bash
+# 保存到当前目录下的默认文件 fastruct_output.txt
+fastruct --saveto
+
+# 保存到指定文件
+fastruct --saveto /home/user/output.txt
+
+# 保存到指定目录（会在该目录下生成 fastruct_output.txt）
+fastruct --saveto /home/user/output_dir/
+```
+
+#### 6. 组合使用
+
+```bash
+fastruct -d /home/user/projects --depth 3 --nopath --saveto ./struct.txt
 ```
 
 ### 输出格式说明
 
 每一行代表一个文件或目录：
 - **目录**以 `-` 开头，后跟黄色的目录名
-- **文件**以 `-` 开头，后跟彩色文件名，最后是灰色的完整路径
+- **文件**以 `-` 开头，后跟彩色文件名，最后（默认）是灰色的完整路径
+- 当使用 `--nopath` 时，文件名后不再显示路径
+
+#### 深度预警与前缀显示
+- 当目录层级深度超过 **5** 时，程序会发出警告并请求确认，防止因意外操作导致输出刷屏。
+- 输出时，前缀的减号数量默认等于当前深度，但当实际深度超过警告阈值（5）时，超出的层级依然只显示 **5** 个减号，使结构更加清晰易读。
 
 ## 注意事项
 
@@ -184,8 +219,8 @@ makepkg -si
 
 ### Windows
 
-1. Download the latest `fastruct-1.0.0-windows-x86_64.exe` from the [Releases](https://github.com/GuitaristRin/fastruct/releases) page
-2. Run setup,after the installation,you may need to add the PATH
+1. Download the latest `fastruct-1.1.0-windows-x86_64.exe` from the [Releases](https://github.com/GuitaristRin/fastruct/releases) page
+2. Run setup, after the installation, you may need to add the PATH
 
 ### Build from Source
 
@@ -220,6 +255,8 @@ fastruct [options]
 |--------|-------------|
 | `-d <path>` | Specify the starting directory (defaults to current directory) |
 | `--depth <value>` | Set the maximum recursion depth (defaults to unlimited) |
+| `--nopath` | Do not display the full path after the file name |
+| `--saveto [path]` | Save output to a specified file or directory (if no path is given, defaults to `fastruct_output.txt` in the current directory) |
 
 ### Usage Examples
 
@@ -254,17 +291,50 @@ fastruct --depth 0
 fastruct --depth 2
 ```
 
-#### 4. Combined Usage
+#### 4. Hide Full Paths
 
 ```bash
-fastruct -d /home/user/projects --depth 3
+fastruct --nopath
+```
+
+Sample Output (paths are no longer displayed after file names):
+```
+project/
+-subdir1
+-file.txt
+-script.sh
+-main.cpp
+```
+
+#### 5. Save Output to a File
+
+```bash
+# Save to default file fastruct_output.txt in the current directory
+fastruct --saveto
+
+# Save to a specific file
+fastruct --saveto /home/user/output.txt
+
+# Save to a specific directory (fastruct_output.txt will be created there)
+fastruct --saveto /home/user/output_dir/
+```
+
+#### 6. Combined Usage
+
+```bash
+fastruct -d /home/user/projects --depth 3 --nopath --saveto ./struct.txt
 ```
 
 ### Output Format Description
 
 Each line represents a file or directory:
 - **Directory** starts with `-` followed by the directory name in yellow
-- **File** starts with `-` followed by the colored filename, ending with the full path in gray
+- **File** starts with `-` followed by the colored filename, ending (by default) with the full path in gray
+- When `--nopath` is used, the path is omitted after the filename
+
+#### Depth Warning and Prefix Display
+- If the directory depth exceeds **5**, the program issues a warning and asks for confirmation to prevent unintentional flooding of the output.
+- The number of dashes in the prefix is normally equal to the current depth. However, once the actual depth exceeds the warning threshold (5), the prefix remains at **5** dashes for deeper levels, keeping the output clean and readable.
 
 ## Notes
 
@@ -278,5 +348,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 
 <p align="right"><a href="#top">🔝 Back to top</a></p>
-
-
+```
